@@ -1,0 +1,53 @@
+version: "3.8"
+services:
+  backend:
+    image: girlathon-backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    env_file:
+        - example.env
+    ports:
+      - "5001:5001"
+    networks:
+      - girlathon
+  frontend:
+    image: girlathon-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    env_file:
+      - example.env
+    ports:
+      - "5173:5173"
+    stdin_open: true
+    tty: true
+    volumes:
+      - /app/node_modules
+      - .:/app
+    depends_on:
+      - backend
+    networks:
+      - girlathon
+  admin:
+    image: girlathon-admin
+    build:
+      context: ./admin
+      dockerfile: Dockerfile
+    env_file:
+      - example.env
+    ports:
+      - "3000:3000"
+    volumes:
+      - /app/node_modules
+      - .:/app
+    stdin_open: true
+    tty: true
+    depends_on:
+      - backend
+    networks:
+      - girlathon
+networks:
+    girlathon:
+
+
