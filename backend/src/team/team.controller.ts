@@ -12,6 +12,7 @@ export class TeamController {
   constructor(private readonly teamService: TeamService) {
   }
 
+  @UseGuards(AuthenticatedGuard)
   @Post('member-register')
   async create(@Body() createTeamDto: CreateMemberDto, @Res() res: Response) {
     if (await this.teamService.findOneByEmail(createTeamDto.email)) {
@@ -50,12 +51,16 @@ export class TeamController {
   }
 
   @UseGuards(isAdminGuard) @Get('delete/:email')
-  async delete(@Param('email') email: string, @Res() res: Response) {
-    const response = await this.teamService.delete(email);
-    if (response !== null) {
-      res.status(201).send(response);
-    } else {
-      res.status(250).json({ message: 'Error deleting' });
+  async delete(@Param('email') email: string, @Res() res: Response, @Session() session: Record<string, any>) {
+    if(session.passport.user.role === 'owner' || session.passport.user.role === 'admin'){
+      const response = await this.teamService.delete(email);
+      if (response !== null) {
+        res.status(201).send(response);
+      } else {
+        res.status(250).json({ message: 'Error deleting' });
+      }
     }
+    return null;
+
   }
 }

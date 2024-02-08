@@ -43,25 +43,31 @@ export class UserController {
   async admincreate(
     @Body() createUserDto: CreateUserDto,
     @Res() res: Response,
+    @Session() session: Record<string, any>,
   ) {
-    if (await this.userService.isEmailExists(createUserDto.email)) {
-      return res.status(230).json({ message: 'Email already exists' });
-    } else {
-      const response = await this.userService.admincreate(createUserDto);
-      // console.log(response);
-      if (response.User !== null) {
-        return res.status(200).json({ message: 'User created' });
+    if(session.passport.user.role === 'owner'){
+      if (await this.userService.isEmailExists(createUserDto.email)) {
+        return res.status(230).json({ message: 'Email already exists' });
       } else {
-        return res.status(230).json({ message: 'Error' });
+        const response = await this.userService.admincreate(createUserDto);
+        // console.log(response);
+        if (response.User !== null) {
+          return res.status(200).json({ message: 'User created' });
+        } else {
+          return res.status(230).json({ message: 'Error' });
+        }
       }
     }
+    return null;
+
   }
 
   @UseGuards(isAdminGuard) @Get('findall') findAll(@Session() session: Record<string, any>) {
-    console.log('findAll');
-    console.log(session);
-    console.log("njn ethi")
-    return this.userService.findAll();
+    console.log(session.passport.user);
+    if(session.passport.user.role === 'admin' || session.passport.user.role === 'owner') {
+        return this.userService.findAll();
+    }
+    return null;
   }
 
   @Get(':id') findOne(@Param('id') id: ObjectId) {
@@ -69,32 +75,42 @@ export class UserController {
   }
 
   @UseGuards(isAdminGuard) @Get('email/:email') findOneByEmail(
-    @Param('email') email: string,
+    @Param('email') email: string,@Session() session: Record<string, any>,
   ) {
-    console.log('findOneByEmail');
-    return this.userService.findOneByEmail(email);
+    if(session.passport.user.role === 'admin' || session.passport.user.role === 'owner') {
+      console.log('findOneByEmail');
+      return this.userService.findOneByEmail(email);
+    }
+    return null;
   }
 
   @UseGuards(isAdminGuard)
   @Post('admin/passwordReset')
-  async passwordReset(@Body() body: any, @Res() res: Response) {
+  async passwordReset(@Body() body: any, @Res() res: Response, @Session() session: Record<string, any>) {
     // console.log(body);
-    const response = await this.userService.passwordReset(body.lead, body.pass);
-    if (response !== null) {
-      return res.status(201).json({ message: 'Password reset' });
-    } else {
-      return res.status(230).json({ message: 'Error' });
+    if(session.passport.user.role === 'admin' || session.passport.user.role === 'owner') {
+        const response = await this.userService.passwordReset(body.lead, body.pass);
+        if (response !== null) {
+            return res.status(201).json({ message: 'Password reset' });
+        } else {
+            return res.status(230).json({ message: 'Error' });
+        }
     }
+    return null;
   }
 
   @UseGuards(isAdminGuard)
   @Get('admin/data/:email')
-  async data(@Param('email') email: string) {
-    const response = await this.userService.profile(email);
-    if (response !== null) {
-      console.log(response);
-      return await response;
+  async data(@Param('email') email: string, @Session() session: Record<string, any>) {
+    if(session.passport.user.role === 'admin' || session.passport.user.role === 'owner') {
+      const response = await this.userService.profile(email);
+      if (response !== null) {
+        console.log(response);
+        return await response;
+      }
     }
+    return null;
+
   }
 
   @UseGuards(AuthenticatedGuard)
@@ -124,14 +140,16 @@ export class UserController {
     }
   }
 
-  @UseGuards(isAdminGuard) @Patch(':id') update(
-    @Param('id') id: string,
-    @Body() updateUserDto: UpdateUserDto,
-  ) {
-    return this.userService.update(+id, updateUserDto);
-  }
-
-  @UseGuards(isAdminGuard) @Delete(':id') remove(@Param('id') id: string) {
-    return this.userService.remove(+id);
-  }
+  // @UseGuards(isAdminGuard) @Patch(':id') update(
+  //   @Param('id') id: string,
+  //   @Body() updateUserDto: UpdateUserDto,
+  //   @Session() session: Record<string, any>,
+  // ) {
+  //
+  //   return this.userService.update(+id, updateUserDto);
+  // }
+  //
+  // @UseGuards(isAdminGuard) @Delete(':id') remove(@Param('id') id: string) {
+  //   return this.userService.remove(+id);
+  // }
 }

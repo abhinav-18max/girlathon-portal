@@ -3,6 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import {NextApiRequest, NextApiResponse} from "next";
 import {cookies} from "next/headers";
 import {parse} from "cookie";
+import axios from "axios";
 
 
 export type User = {
@@ -22,35 +23,32 @@ const Options = (req: NextApiRequest, res: NextApiResponse):NextAuthOptions => {
             },
             authorize: async function (credentials: Record<"email" | "password", string> | undefined, req: Pick<RequestInternal, "body" >): Promise<any> {
                 try {
-                    const response = await fetch(`${process.env.NEXT_PUBLIC_API_ROUTE}/auth/login`, {
-                        method: "POST", headers: {
-                            "Content-Type": "application/json",
-                            "Acess-Control-Allow-Origin": "*",
-                            }, body: JSON.stringify(credentials)
+                     const response = await fetch(`${process.env.NEXT_PUBLIC_API_ROUTE}/auth/login`, {
+                        method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(credentials)
                     })
-                    console.log(response)
-                    // const apiCookies = response.headers.get("Set-Cookie");
-                    // if (apiCookies && apiCookies.length > 0) {
-                    //     // @ts-ignore
-                    //     const cookie = apiCookies;
-                    //     const parsedCookie = parse(cookie);
-                    //     const [cookieName, cookieValue] = Object.entries(parsedCookie)[0];
-                    //     const httpOnly = cookie.includes("httponly;");
 
-                    //     // @ts-ignore
-                    //     cookies().set({
-                    //         name: cookieName,
-                    //         value: cookieValue,
-                    //         httpOnly: httpOnly,
-                    //         maxAge: parseInt(parsedCookie["Max-Age"]),
-                    //         path: parsedCookie.path,
-                    //         sameSite: parsedCookie.samesite,
-                    //         expires: new Date(parsedCookie.expires),
-                    //         secure: parsedCookie.secure,
+                    const apiCookies = response.headers.get("Set-Cookie");
+                    if (apiCookies && apiCookies.length > 0) {
+                        // @ts-ignore
+                        const cookie = apiCookies;
+                        const parsedCookie = parse(cookie);
+                        const [cookieName, cookieValue] = Object.entries(parsedCookie)[0];
+                        const httpOnly = cookie.includes("httponly;");
 
-                    //     });
+                        // @ts-ignore
+                        // cookies().set({
+                        //     name: cookieName,
+                        //     value: cookieValue,
+                        //     httpOnly: httpOnly,
+                        //     maxAge: parseInt(parsedCookie["Max-Age"]),
+                        //     path: parsedCookie.path,
+                        //     sameSite: parsedCookie.samesite,
+                        //     expires: new Date(parsedCookie.expires),
+                        //     secure: parsedCookie.secure,
+                        //
+                        // });
 
-                    // }
+                    }
 
                     const user_ = await response.json();
                     const user = user_.user;

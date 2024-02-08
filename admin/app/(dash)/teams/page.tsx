@@ -16,14 +16,8 @@ export default function User() {
   const { isLoading, data, error } = useQuery({
     queryKey: ["teams"],
     queryFn: async () => {
-      const response = await axios.get(`${API}/user/findall`, {
-        withCredentials: true,
-        headers: {
-          "Content-Type": "application/json",
-          "Acess-Control-Allow-Origin": "*",
-        },
-      });
-      return response.data;
+      const res = await fetch(`${API}/user/findall`,{credentials: 'include'})
+      return res.json()
     },
     staleTime: 1000 * 60,
   });

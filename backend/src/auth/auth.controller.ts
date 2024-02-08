@@ -19,7 +19,7 @@ export class AuthController {
   @UseGuards(LocalAuthGuard)
   @Post('login')
   async login(@Session() session: Record<string, any>, @Res() res: Response) {
-    console.log(session);
+    console.log(session.passport.user, 'login');
 
     return res
       .status(201)
