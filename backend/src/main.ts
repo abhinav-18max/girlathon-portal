@@ -13,17 +13,20 @@ async function bootstrap() {
   if (Appdatasource.isInitialized === false) await Appdatasource.initialize();
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.enableCors({
-    origin: ["*"],
+    origin: true,
     credentials: true,
   });
   const sessionrepository = Appdatasource.getRepository(SessionEntity);
 
   app.use(
     session({
+      name: 'session-login',
       secret: 'my-secret',
       resave: false,
       saveUninitialized: true,
-      cookie: { maxAge: 3600000 },
+            cookie: {
+                maxAge: 1000 * 60 * 60 * 24, // Session expiration time in milliseconds
+            },
       store: new TypeormStore().connect(sessionrepository),
     }),
   );

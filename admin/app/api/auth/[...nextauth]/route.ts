@@ -4,6 +4,7 @@ import {NextApiRequest, NextApiResponse} from "next";
 import {cookies} from "next/headers";
 import {parse} from "cookie";
 
+
 export type User = {
     user: string,
     role: string,
@@ -12,6 +13,7 @@ export type User = {
 }
 const Options = (req: NextApiRequest, res: NextApiResponse):NextAuthOptions => {
     return {
+        secret: process.env.NEXTAUTH_SECRET,
         providers: [CredentialsProvider({
             name: "Credentials",
             credentials: {
@@ -21,30 +23,34 @@ const Options = (req: NextApiRequest, res: NextApiResponse):NextAuthOptions => {
             authorize: async function (credentials: Record<"email" | "password", string> | undefined, req: Pick<RequestInternal, "body" >): Promise<any> {
                 try {
                     const response = await fetch(`${process.env.NEXT_PUBLIC_API_ROUTE}/auth/login`, {
-                        method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(credentials)
+                        method: "POST", headers: {
+                            "Content-Type": "application/json",
+                            "Acess-Control-Allow-Origin": "*",
+                            }, body: JSON.stringify(credentials)
                     })
+                    console.log(response)
+                    // const apiCookies = response.headers.get("Set-Cookie");
+                    // if (apiCookies && apiCookies.length > 0) {
+                    //     // @ts-ignore
+                    //     const cookie = apiCookies;
+                    //     const parsedCookie = parse(cookie);
+                    //     const [cookieName, cookieValue] = Object.entries(parsedCookie)[0];
+                    //     const httpOnly = cookie.includes("httponly;");
 
-                    const apiCookies = response.headers.get("Set-Cookie");
-                    if (apiCookies && apiCookies.length > 0) {
-                        // @ts-ignore
-                        const cookie = apiCookies;
-                        const parsedCookie = parse(cookie);
-                        const [cookieName, cookieValue] = Object.entries(parsedCookie)[0];
-                        const httpOnly = cookie.includes("httponly;");
+                    //     // @ts-ignore
+                    //     cookies().set({
+                    //         name: cookieName,
+                    //         value: cookieValue,
+                    //         httpOnly: httpOnly,
+                    //         maxAge: parseInt(parsedCookie["Max-Age"]),
+                    //         path: parsedCookie.path,
+                    //         sameSite: parsedCookie.samesite,
+                    //         expires: new Date(parsedCookie.expires),
+                    //         secure: parsedCookie.secure,
 
-                        // @ts-ignore
-                        cookies().set({
-                            name: cookieName,
-                            value: cookieValue,
-                            httpOnly: httpOnly,
-                            maxAge: parseInt(parsedCookie["Max-Age"]),
-                            path: parsedCookie.path,
-                            sameSite: parsedCookie.samesite,
-                            expires: new Date(parsedCookie.expires),
-                            secure: true,
-                        });
+                    //     });
 
-                    }
+                    // }
 
                     const user_ = await response.json();
                     const user = user_.user;
@@ -63,27 +69,35 @@ const Options = (req: NextApiRequest, res: NextApiResponse):NextAuthOptions => {
             },
 
         })], callbacks: {
-            async jwt({ token, user, session}):Promise<any>{
+            async jwt({ token, user,trigger,session}):Promise<any>{
                 if(user){
 
                     // @ts-ignore
-                    return {
-                        ...token,
-                        user:user.user,
-                        role:user.role,
-                        phone:user.phone
-                    }
+                    // return {
+                    //     ...token,
+                    //     user:user.user,
+                    //     role:user.role,
+                    //     phone:user.phone
+                    // }
+                    token.user = user.user;
+                    token.role = user.role;
+                    token.phone = user.phone;
+
                 }
                 return token;
             },
-            async session({ session, token, user }):Promise<any> {
+            async session({ session, token }):Promise<any> {
                 if(token){
-                    return{
-                        ...session,
-                        user:token.user,
-                        role:token.role,
-                        phone:token.phone
-                    }
+                    // return{
+                    //     ...session,
+                    //     user:token.user,
+                    //     role:token.role,
+                    //     phone:token.phone
+                    // }
+                    session.user = token.user;
+                    session.role = token.role;
+                    session.phone = token.phone;
+                    
                 }
                 return session;
             }

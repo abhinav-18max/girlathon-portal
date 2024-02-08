@@ -1,0 +1,1 @@
+self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/home/abhinav/Projects/girlathon-portal/admin/app/layout\":[\"static/media/c9a5bc6a7c948fb0-s.p.woff2\"],\"/home/abhinav/Projects/girlathon-portal/admin/app/(auth)/layout\":[\"static/media/c9a5bc6a7c948fb0-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"

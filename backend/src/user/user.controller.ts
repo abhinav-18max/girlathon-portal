@@ -57,7 +57,10 @@ export class UserController {
     }
   }
 
-  @UseGuards(isAdminGuard) @Get('findall') findAll() {
+  @UseGuards(isAdminGuard) @Get('findall') findAll(@Session() session: Record<string, any>) {
+    console.log('findAll');
+    console.log(session);
+    console.log("njn ethi")
     return this.userService.findAll();
   }
 
