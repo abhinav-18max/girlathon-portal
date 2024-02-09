@@ -78,6 +78,9 @@ export default function DashInd()
       }
       const res = await axios.post(`${API}/team/member-register`,data,{withCredentials:true})
       
+      setTeammatename("")
+      setTeammateemail("")
+      setTeammatenum("")
    
      if(teammates.length==3)
         setCount(5)
@@ -85,7 +88,13 @@ export default function DashInd()
         else if(res.status==230)
         document.getElementById('email-exist').style.display='block'
       else
+      {
         alert("team mate registered")
+        setTeammatename("")
+        setTeammateemail("")
+        setTeammatenum("")
+      }
+
     }
 
     async function checkTeamName(event)
@@ -121,12 +130,12 @@ export default function DashInd()
         <>
         <h3>Guidelines</h3>
         <ol>
-        <li style={{ paddingTop:'.5rem' }}>1.You can register as a team of 4 members maximum.</li>
-    <li  style={{ paddingTop:'.5rem' }}>2.Team lead has to register first</li>
-    <li  style={{ paddingTop:'.5rem' }}>3.After registration, team lead can add the members by the option of 'Add Member'.</li>
-    <li  style={{ paddingTop:'.5rem' }}>4.Only team lead can enter the details of team members.</li>
-    <li  style={{ paddingTop:'.5rem' }}>5.Ideas based on various domains of interest can be submitted as Abstract.</li>
-    <li  style={{ paddingTop:'.5rem' }}>6.Once the abstract of your idea is submitted and all team members are added , the registration is complete.</li>
+        <li style={{ paddingTop:'.5rem' }}>You can register as a team of 4 members maximum.</li>
+    <li  style={{ paddingTop:'.5rem' }}>Team lead has to register first</li>
+    <li  style={{ paddingTop:'.5rem' }}>After registration, team lead can add the members by the option of 'Add Member'.</li>
+    <li  style={{ paddingTop:'.5rem' }}>Only team lead can enter the details of team members.</li>
+    <li  style={{ paddingTop:'.5rem' }}>Ideas based on various domains of interest can be submitted as Abstract.</li>
+    <li  style={{ paddingTop:'.5rem' }}>Once the abstract of your idea is submitted and all team members are added , the registration is complete.</li>
         </ol>
        <hr></hr>
        <br></br>
@@ -307,10 +316,10 @@ data-aos="zoom-out-up" data-aos-duration="1300" data-aos-once="true">
 <div style={{ paddingTop:'1rem' }}>
 
 <br></br>
-<button style={{ background:'none',border:'none' }} onClick={()=>{
+<button   style={{ background:'none',border:'none'  }}  onClick={()=>{
   logOut();
    dispatch(loggedOut())
-}}>logout</button>
+}}><u>logout</u></button>
 </div>
 </div>)} 
 
