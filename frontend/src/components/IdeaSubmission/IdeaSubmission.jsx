@@ -182,7 +182,7 @@ console.log(res)
             <button style={{ background:'none',border:'none' }} onClick={()=>{
    dispatch(loggedOut())
    logOut()
-}}>logout</button>
+}}><u>logout</u></button>
           </div>
         </div>
       </div>
