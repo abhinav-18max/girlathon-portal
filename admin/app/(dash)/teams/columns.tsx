@@ -93,7 +93,7 @@ export const columns: ColumnDef<User>[] = [{
                             Copy Team Name
                         </DropdownMenuItem>
                         <DropdownMenuSeparator/>
-                        <DropdownMenuItem><Link href={{pathname:"/view",query:{lead:user.email,team:user.team}}}>View full detail</Link></DropdownMenuItem>
+                        <DropdownMenuItem><Link href={{pathname:"/view",query:{lead:user.email}}}>View full detail</Link></DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
             </div>

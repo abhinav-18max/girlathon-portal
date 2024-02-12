@@ -6,7 +6,7 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     env_file:
-        - example.env
+        - .env.example
     ports:
       - "5001:5001"
     networks:
@@ -17,7 +17,7 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     env_file:
-      - example.env
+      - .env.example
     ports:
       - "5173:5173"
     stdin_open: true
@@ -35,7 +35,7 @@ services:
       context: ./admin
       dockerfile: Dockerfile
     env_file:
-      - example.env
+      - .env.example
     ports:
       - "3000:3000"
     volumes:

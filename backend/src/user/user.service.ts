@@ -128,12 +128,16 @@ export class UserService {
       const res1 = await this.userRepository.findOneBy({ email: email });
       const { password, ...rest } = res1;
       // console.log(rest);
-      const res2 = await this.teamRepository.find({
-        select: ['email', 'name', 'phone'],
-        where: { team: rest.team },
-      });
-      const response = { lead: rest, members: res2 };
-      return response;
+      if(rest.team !== null){
+        const res2 = await this.teamRepository.find({
+          select: ['email', 'name', 'phone'],
+          where: { team: rest.team },
+        });
+        const response1 = { lead: rest, members: res2 };
+        return response1;
+      }
+      const response2 = { lead: rest, members: [] };
+      return response2;
     } catch (e) {}
   }
 
