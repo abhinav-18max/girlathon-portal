@@ -11,7 +11,7 @@ import CommPart from "./commpart/commpart";
 
 export default function landing() {
   return (
-      <>
+      <div style={{ overflow:'clip' }}>
       <Hero />
       <About />
       <Previous />
@@ -19,6 +19,6 @@ export default function landing() {
       <FAQPage />
       <Contact />
       <Footer />
-   </>
+   </div>
   );
 }

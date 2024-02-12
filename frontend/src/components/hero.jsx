@@ -2,7 +2,35 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function Hero() {
+  const [loading,setLoading]=useState(false)
+  const scrollDown = () => {
+    // Specify the number of pixels to scroll
+    const pixelsToScroll = 2000;
+
+    // Scroll down by the specified number of pixels
+    window.scrollBy({
+      top: pixelsToScroll,
+      left: 0,
+      behavior: 'smooth', // Optional: adds smooth scrolling animation
+    });
+  };
+  const scrollUp = () => {
+    // Specify the number of pixels to scroll
+    const pixelsToScroll = -2000;
+
+    // Scroll down by the specified number of pixels
+    window.scrollBy({
+      top: pixelsToScroll,
+      left: 0,
+      behavior: 'smooth', // Optional: adds smooth scrolling animation
+    });
+  };
   useEffect(() => {
+// scrollDown()
+// const timer = setTimeout(() => {
+//   scrollUp() 
+// }, 1000);
+
     generateHexGrid();
   }, []);
 
@@ -56,7 +84,7 @@ function Hero() {
   };
 
   return (
-    <section className="hero-bg fade-up" id="HERO" data-aos="zoom-out-up" data-aos-duration="1300" data-aos-once="true">
+    <section  className="hero-bg fade-up" id="HERO" data-aos="zoom-out-up" data-aos-duration="1300" data-aos-once="true">
       <img className="hero-image" src="images/backgroundAbstarct.png" />
       <div className="hex-grid" id="hexGrid"></div>
 
