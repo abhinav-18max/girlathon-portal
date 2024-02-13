@@ -8,6 +8,7 @@ import Footer from "./Footer/Footer";
 import { useEffect } from "react";
 import Loader from "./loader/loader";
 import CommPart from "./commpart/commpart";
+import CommPart2 from "./commpart/commpart2";
 
 export default function landing() {
   return (
@@ -16,6 +17,7 @@ export default function landing() {
       <About />
       <Previous />
       <CommPart/>
+    <CommPart2/>
       <FAQPage />
       <Contact />
       <Footer />
