@@ -82,6 +82,16 @@ export default function Navbar() {
                 About
               </li>
             </a>
+            <a href="#SPONSERS">
+              {" "}
+              <li
+                className={`lin ${
+                  activeSection === "SPONSERS" ? "link-active" : "link-passive"
+                }`}
+              >
+                Sponsers
+              </li>
+            </a>
             <a href="#FAQ">
               {" "}
               <li
@@ -92,9 +102,7 @@ export default function Navbar() {
                 FAQ
               </li>
             </a>
-            <li className="lin">
-              <a href="#HERO">Sponsors</a>
-            </li>
+           
             <a href="#CONTACT">
               {" "}
               <li
@@ -139,12 +147,12 @@ export default function Navbar() {
         }`}
       >
         <ul>
-        <li
-              id="hero-amob" 
-              className={`lin`}
-            >
-              <a href="#HERO">Home</a>
-            </li>
+        <li className="lin"  id="hero-amob" >
+            <a href="#HERO" onClick={setNavigation}>
+             Home
+            </a>
+          </li>
+        
             <li
               id="hero-navmob"
               style={{ display: "none" }}
@@ -153,6 +161,7 @@ export default function Navbar() {
               <NavLink
                 to="/"
                 onClick={() => {
+                  setNavigation()
                   document.getElementById("hero-navmob").style.display = "none";
                   document.getElementById("hero-amob").style.display = "block";
                 }}
@@ -166,15 +175,16 @@ export default function Navbar() {
             </a>
           </li>
           <li className="lin">
+            <a href="#SPONSERS" onClick={setNavigation}>
+              Sponsors
+            </a>
+          </li>
+          <li className="lin">
             <a href="#FAQ" onClick={setNavigation}>
               FAQ
             </a>
           </li>
-          <li className="lin">
-            <a href="#HERO" onClick={setNavigation}>
-              Sponsors
-            </a>
-          </li>
+         
           <li className="lin">
             <a href="#CONTACT" onClick={setNavigation}>
               Contact
