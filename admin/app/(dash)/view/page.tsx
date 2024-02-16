@@ -107,7 +107,7 @@ export default function View({searchParams}: { searchParams: { lead: string} }) 
             </div>}
         <div className="flex flex-row justify-center items-center text-4xl font-extrabold">IDEA</div>
         <div>
-            <Idea team={team}/>
+            <Idea team={data.lead.team}/>
         </div>
 
 

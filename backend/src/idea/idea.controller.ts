@@ -24,6 +24,7 @@ export class IdeaController {
       return res.status(230).json({ message: 'Already submitted' });
     }
     const response = await this.ideaService.create(CreateIdea);
+    console.log(response)
     if (response !== null) {
       res.status(201).json({ message: 'success' });
     } else {
@@ -76,13 +77,13 @@ export class IdeaController {
 
   }
 
-  // @Get('delete/:team')
-  // async delete(@Param('team') team: string, @Res() res: Response) {
-  //   const response = await this.ideaService.delete(team);
-  //   if (response !== null) {
-  //     res.status(201).send(response);
-  //   } else {
-  //     res.status(250).json({ message: 'Error deleting' });
-  //   }
-  // }
+  @Get('delete/:team')
+  async delete(@Param('team') team: string, @Res() res: Response) {
+    const response = await this.ideaService.delete(team);
+    if (response !== null) {
+      res.status(201).send(response);
+    } else {
+      res.status(250).json({ message: 'Error deleting' });
+    }
+  }
 }

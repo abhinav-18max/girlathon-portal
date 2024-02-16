@@ -8,7 +8,7 @@ export class Idea {
   title: string;
   @Column({ type: 'varchar', length: 255 })
   category: string;
-  @Column({ type: 'varchar', length: 255 })
+  @Column({ type: 'varchar', length: 25500 })
   description: string;
   @Column({ type: 'varchar', length: 255 })
   team: string;
