@@ -134,11 +134,11 @@ export default function Navbar() {
         </NavLink>
         <i
           className={`bi bi-list list${Nav ? "nav-active" : ""}`}
-          onClick={setNavigation}
+          onClick={setNavigation} 
         ></i>
         <i
           className={`bi bi-x close${Nav ? "" : "nav-active"}`}
-          onClick={setNavigation}
+          onClick={setNavigation} 
         ></i>
       </div>
       <section
