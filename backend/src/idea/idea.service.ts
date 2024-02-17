@@ -15,6 +15,9 @@ export class IdeaService {
   async create(Idea: CreateIdeaDto) {
     try {
       const idea = await this.ideaRepository.save(Idea);
+
+
+
       const user = await this.userRepository.findOneBy({ team: idea.team });
       user.idea = true;
       await this.ideaRepository.update(

@@ -74,6 +74,7 @@ export class UserController {
     return this.userService.findOne(id);
   }
 
+
   @UseGuards(isAdminGuard) @Get('email/:email') findOneByEmail(
     @Param('email') email: string,@Session() session: Record<string, any>,
   ) {

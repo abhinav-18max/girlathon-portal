@@ -6,9 +6,11 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     env_file:
-        - example.env
+        - .env.example
     ports:
       - "5001:5001"
+    dns:
+      -8.8.8.8
     networks:
       - girlathon
   frontend:
@@ -17,9 +19,11 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     env_file:
-      - example.env
+      - .env.example
     ports:
       - "5173:5173"
+    dns:
+      -8.8.8.8
     stdin_open: true
     tty: true
     volumes:
@@ -35,9 +39,11 @@ services:
       context: ./admin
       dockerfile: Dockerfile
     env_file:
-      - example.env
+      - .env.example
     ports:
       - "3000:3000"
+    dns:
+      -8.8.8.8
     volumes:
       - /app/node_modules
       - .:/app

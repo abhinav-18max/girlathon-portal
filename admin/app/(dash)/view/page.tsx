@@ -4,7 +4,7 @@ import {Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogTr
 import {Label} from "@/components/ui/label";
 import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
-import {useRef} from "react";
+import {useRef, useState} from "react";
 import axios from "axios";
 import {QueryClient, useMutation, useQuery} from "@tanstack/react-query";
 import Idea from "@/app/(dash)/view/idea"
@@ -12,13 +12,15 @@ import Member from "@/app/(dash)/view/member";
 import {redirect} from "next/navigation";
 import {useSession} from "next-auth/react";
 
-export default function View({searchParams}: { searchParams: { lead: string, team: string } }) {
+export default function View({searchParams}: { searchParams: { lead: string} }) {
     const {data:session,status} = useSession();
     const queryClient = new QueryClient()
     const API = process.env.NEXT_PUBLIC_API_URL;
-    const {lead, team} = searchParams
+    const {lead} = searchParams
     const password = useRef<any>()
     const confirm = useRef<any>()
+    const [team,setTeam] = useState<string>("")
+
     const reset = async () => {
         const pass = password.current?.value
         const conf = confirm.current?.value
@@ -38,8 +40,10 @@ export default function View({searchParams}: { searchParams: { lead: string, tea
         queryKey: [{lead}, "alldata"], queryFn: async () => {
             const res = await fetch(`${API}/user/admin/data/${lead}`,{credentials: 'include'});
             return res.json();
-        }
+        },
+        staleTime: 0,
     })
+    console.log(data)
     if(status === "loading")
         return <div className="flex flex-row justify-center items-center h-screen text-3xl font-extrabold">Loading ... </div>
     if(status === "unauthenticated")
@@ -57,8 +61,8 @@ export default function View({searchParams}: { searchParams: { lead: string, tea
     return (<>
 
         <div className="flex flex-row justify-between items-center">
-            <h1 className="text-5xl font-extrabold mt-1.5 ml-3.5"> {team &&
-                <div className="bg-black text-white">{team}</div>} </h1>
+            <h1 className="text-5xl font-extrabold mt-1.5 ml-3.5"> {data.lead.team &&
+                <div className="bg-black text-white">{data.lead.team}</div>} </h1>
             <Dialog>
                 <DialogTrigger asChild>
                     <Button variant={"outline"} className="float-right mt-3.5 rounded-2xl bg-black text-white"
@@ -103,7 +107,7 @@ export default function View({searchParams}: { searchParams: { lead: string, tea
             </div>}
         <div className="flex flex-row justify-center items-center text-4xl font-extrabold">IDEA</div>
         <div>
-            <Idea team={team}/>
+            <Idea team={data.lead.team}/>
         </div>
 
 
