@@ -18,6 +18,8 @@ export default function landing() {
       <Hero />
       <About />
       <Previous />
+      <Timeline />
+      <Tracks/>
       <CommPart />
       <CommPart2 />
       <Tracks />
