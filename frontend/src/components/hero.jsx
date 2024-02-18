@@ -141,6 +141,7 @@ function Hero() {
             Register now &#x2197;
           </Link>
         </div>
+      
     </section>
   );
 }
