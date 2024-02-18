@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import Loader from "./loader/loader";
 import CommPart from "./commpart/commpart";
 import CommPart2 from "./commpart/commpart2";
+import Tracks from "./tracks/tracks";
 
 export default function landing() {
   return (
@@ -16,6 +17,7 @@ export default function landing() {
       <Hero />
       <About />
       <Previous />
+      <Tracks/>
       <CommPart/>
     <CommPart2/>
       <FAQPage />

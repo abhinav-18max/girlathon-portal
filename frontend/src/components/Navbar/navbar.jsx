@@ -200,6 +200,7 @@ export default function Navbar() {
           </li> 
         </ul>
       </section>
+      {activeSection!='HERO' &&<a href="#HERO" style={{ position:'fixed',bottom:'2rem',right:'1rem',zIndex:'100',border:'solid white .13rem',background:'none',padding:'.3rem' }}>top</a>}
     </div>
   );
 }
