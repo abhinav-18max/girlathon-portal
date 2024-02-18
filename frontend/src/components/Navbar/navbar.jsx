@@ -41,14 +41,18 @@ export default function Navbar() {
   return (
     <div>
       <section className="navigation row">
-
-        <NavLink to='/' className="logo col" style={{height:'2rem',display:'flex',alignItems:'center' }}><img src="/images/GDSC.png" style={{ height:'190%' }} alt=""  /></NavLink>
-       
+        <NavLink
+          to="/"
+          className="logo col"
+          style={{ height: "2rem", display: "flex", alignItems: "center" }}
+        >
+          <img src="/images/GDSC.png" style={{ height: "190%" }} alt="" />
+        </NavLink>
 
         <div className="navigation-links col">
           <ul>
             <li
-              id="hero-a" 
+              id="hero-a"
               className={`lin ${
                 activeSection === "HERO" ? "link-active" : "link-passive"
               }`}
@@ -102,7 +106,7 @@ export default function Navbar() {
                 FAQ
               </li>
             </a>
-           
+
             <a href="#CONTACT">
               {" "}
               <li
@@ -113,32 +117,41 @@ export default function Navbar() {
                 Contact
               </li>
             </a>
-             <NavLink to="/Signin" onClick={()=>{
-                document.getElementById('hero-nav').style.display='block'
-                document.getElementById('hero-nav').classList.remove('link-active')
-                document.getElementById('hero-a').style.display='none'
-          
+            <NavLink
+              to="/Signin"
+              onClick={() => {
+                document.getElementById("hero-nav").style.display = "block";
+                document
+                  .getElementById("hero-nav")
+                  .classList.remove("link-active");
+                document.getElementById("hero-a").style.display = "none";
+
                 // console.log("Jithin")
-              } }> <li className="register">
-              Register
-            </li></NavLink> 
+              }}
+            >
+              {" "}
+              <li className="register">Register</li>
+            </NavLink>
           </ul>
         </div>
       </section>
       <div className="navigation-mobile-menu">
-        <NavLink to='/'
+        <NavLink
+          to="/"
           className="logo col"
           style={{ height: "2rem", display: "flex", alignItems: "center" }}
         >
           <img src="/images/GDSC.png" style={{ height: "190%" }} alt="" />
         </NavLink>
         <i
+
           className={`bi bi-list list${Nav ? "nav-active" : ""}`}
           onClick={setNavigation} 
         ></i>
         <i
           className={`bi bi-x close${Nav ? "" : "nav-active"}`}
           onClick={setNavigation} 
+
         ></i>
       </div>
       <section
@@ -147,28 +160,24 @@ export default function Navbar() {
         }`}
       >
         <ul>
-        <li className="lin"  id="hero-amob" >
+          <li className="lin" id="hero-amob">
             <a href="#HERO" onClick={setNavigation}>
-             Home
+              Home
             </a>
           </li>
-        
-            <li
-              id="hero-navmob"
-              style={{ display: "none" }}
-              className={`lin`}
+
+          <li id="hero-navmob" style={{ display: "none" }} className={`lin`}>
+            <NavLink
+              to="/"
+              onClick={() => {
+                setNavigation();
+                document.getElementById("hero-navmob").style.display = "none";
+                document.getElementById("hero-amob").style.display = "block";
+              }}
             >
-              <NavLink
-                to="/"
-                onClick={() => {
-                  setNavigation()
-                  document.getElementById("hero-navmob").style.display = "none";
-                  document.getElementById("hero-amob").style.display = "block";
-                }}
-              >
-                Home
-              </NavLink>
-            </li>
+              Home
+            </NavLink>
+          </li>
           <li className="lin">
             <a href="#ABOUT" onClick={setNavigation}>
               About
@@ -184,20 +193,23 @@ export default function Navbar() {
               FAQ
             </a>
           </li>
-         
+
           <li className="lin">
             <a href="#CONTACT" onClick={setNavigation}>
               Contact
             </a>
           </li>
-           <li className="register" onClick={()=>{
-             document.getElementById("hero-navmob").style.display = "block";
-                  document.getElementById("hero-amob").style.display = "none";
-           }}>
+          <li
+            className="register"
+            onClick={() => {
+              document.getElementById("hero-navmob").style.display = "block";
+              document.getElementById("hero-amob").style.display = "none";
+            }}
+          >
             <Link to="/Signin" onClick={setNavigation}>
               Register
             </Link>
-          </li> 
+          </li>
         </ul>
       </section>
     </div>
