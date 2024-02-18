@@ -85,7 +85,6 @@
 }
 .list .close{
     display: none;
-    font-size: 25px;
 }
 .navigation-list-mobile-active{
     height: 100dvh;
@@ -122,6 +121,7 @@
     }
     .list, .close{
         display: none;
+        font-size: 28px;
     }
     .nav-active{
         display: block;
