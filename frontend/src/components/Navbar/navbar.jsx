@@ -144,12 +144,14 @@ export default function Navbar() {
           <img src="/images/GDSC.png" style={{ height: "190%" }} alt="" />
         </NavLink>
         <i
-          className={`bi bi-list list ${Nav ? "nav-active" : ""}`}
-          onClick={setNavigation}
+
+          className={`bi bi-list list${Nav ? "nav-active" : ""}`}
+          onClick={setNavigation} 
         ></i>
         <i
-          className={`bi bi-x close ${Nav ? "" : "nav-active"}`}
-          onClick={setNavigation}
+          className={`bi bi-x close${Nav ? "" : "nav-active"}`}
+          onClick={setNavigation} 
+
         ></i>
       </div>
       <section
