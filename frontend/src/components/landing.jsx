@@ -9,20 +9,20 @@ import { useEffect } from "react";
 import Loader from "./loader/loader";
 import CommPart from "./commpart/commpart";
 import CommPart2 from "./commpart/commpart2";
-import Tracks from "./tracks/tracks";
+import Timeline from "./TImeline/Timeline";
 
 export default function landing() {
   return (
-      <div style={{ overflow:'clip' }}>
+    <div style={{ overflow: "clip" }}>
       <Hero />
       <About />
       <Previous />
-      <Tracks/>
-      <CommPart/>
-    <CommPart2/>
+      <CommPart />
+      <CommPart2 />
+      <Timeline />
       <FAQPage />
       <Contact />
       <Footer />
-   </div>
+    </div>
   );
 }

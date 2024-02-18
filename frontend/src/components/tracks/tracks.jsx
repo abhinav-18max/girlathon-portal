@@ -12,7 +12,6 @@ import 'swiper/css/pagination';
 import { Autoplay,EffectCoverflow, Pagination,Navigation } from 'swiper/modules';
 
 export default function Tracks() {
-  const repeatedImages =[1,2,3,4,5,6,7,8,9,10,11,12];
     const vals=[
       {
         header:'Healthcare',
