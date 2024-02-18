@@ -9,7 +9,7 @@ import "react-vertical-timeline-component/style.min.css";
 export default function Timeline() {
   return (
     <div className="Timeline">
-      <h1>Timeline </h1>
+      <h1>Timeline</h1>
       <VerticalTimeline lineColor="rgb(101, 8, 135)">
         <VerticalTimelineElement
           className="vertical-timeline-element--registration"
