@@ -3,6 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import "./navbar.css";
 
 export default function Navbar() {
+  const [topvis,setTopVis]=useState(true)
   const [Nav, setNav] = useState(true);
   const setNavigation = () => {
     setNav(!Nav);
@@ -10,7 +11,7 @@ export default function Navbar() {
 
   //
 
-  const [activeSection, setActiveSection] = useState("");
+  const [activeSection, setActiveSection] = useState("HERO");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -71,6 +72,7 @@ export default function Navbar() {
                 onClick={() => {
                   document.getElementById("hero-nav").style.display = "none";
                   document.getElementById("hero-a").style.display = "block";
+                  setTopVis(true)
                 }}
               >
                 Home
@@ -125,7 +127,7 @@ export default function Navbar() {
                   .getElementById("hero-nav")
                   .classList.remove("link-active");
                 document.getElementById("hero-a").style.display = "none";
-
+                setTopVis(false)
                 // console.log("Jithin")
               }}
             >
@@ -173,6 +175,7 @@ export default function Navbar() {
                 setNavigation();
                 document.getElementById("hero-navmob").style.display = "none";
                 document.getElementById("hero-amob").style.display = "block";
+                setTopVis(true)
               }}
             >
               Home
@@ -206,13 +209,14 @@ export default function Navbar() {
               document.getElementById("hero-amob").style.display = "none";
             }}
           >
-            <Link to="/Signin" onClick={setNavigation}>
+            <Link to="/Signin" onClick={()=>{setNavigation()
+             setTopVis(false)}}>
               Register
             </Link>
           </li>
         </ul>
       </section>
-      {activeSection!='HERO' &&<a href="#HERO" style={{ position:'fixed',bottom:'2rem',right:'1rem',zIndex:'100',border:'solid white .13rem',background:'none',padding:'.3rem' }}>top</a>}
+      {(activeSection!='HERO' && topvis) &&<a href="#HERO" className="back-to-top" style={{ position:'fixed',bottom:'2rem',right:'1rem',zIndex:'100',border:'solid white .13rem',padding:'.3rem',display:'flex',justifyContent:'center',alignItems:'center' }}>TOP</a>}
     </div>
   );
 }
