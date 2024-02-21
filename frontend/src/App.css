@@ -219,6 +219,11 @@ letter-spacing: -10px;
       width: 100%;
     }
   }
+  .tracks-sm{
+    display: none;
+    text-align: center;
+    padding-top: 3rem;
+  }
   @media(max-width: 1024px){
 
     .oth{
@@ -253,6 +258,10 @@ letter-spacing: -10px;
     .about-bg-text
     {
         display: none;
+    }
+    .tracks-sm
+    {
+      display: block;
     }
     .hero::before{
         background-position: 50% 100%;
@@ -289,7 +298,3 @@ letter-spacing: -10px;
 .values .box:hover img {
   transform: scale(1);
 }
-
-
-
-

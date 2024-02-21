@@ -115,6 +115,7 @@ function Hero() {
               {"  "}
             </h6>
           </div>
+         
         </div>
         {
           //<iframe title='J' src='https://my.spline.design/readyplayermelookingaround-0c0f2a2232256d31c16ec20f9e01ab2c/' frameborder='0' width='100%' height='100%'></iframe>
@@ -122,12 +123,25 @@ function Hero() {
       </div>
       {/* <div className="reg-btn-cont row">
         <div className="col-6 oth"></div>
-        <div className="col-6 reg">
+        <div style={{ position:'absolute',zIndex:'90',top:'10rem',right:'50%' }}>
           <Link to="/Signin" className="reg-btn" >
             Register &#x2197;
           </Link>
         </div>
       </div> */}
+      <div style={{ position:'absolute',zIndex:'90',top:'25%',left:'50%',display:'flex',justifyContent:'center',alignItems:'center' }}
+      >
+          <Link to="/Signin" className="reg-btn"  onClick={()=>{
+             document.getElementById("hero-navmob").style.display = "block";
+                  document.getElementById("hero-amob").style.display = "none";
+                  document.getElementById('hero-nav').style.display='block'
+                document.getElementById('hero-nav').classList.remove('link-active')
+                document.getElementById('hero-a').style.display='none'
+          }}>
+            Register now &#x2197;
+          </Link>
+        </div>
+      
     </section>
   );
 }

@@ -39,6 +39,7 @@ function App() {
         <Route path="/resetPassword" exact Component={ResetPass}/>
       </Routes>
     </BrowserRouter>
+    
     </>
     :<Loader/>
   );

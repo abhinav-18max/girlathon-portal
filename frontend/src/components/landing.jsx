@@ -10,6 +10,7 @@ import Loader from "./loader/loader";
 import CommPart from "./commpart/commpart";
 import CommPart2 from "./commpart/commpart2";
 import Timeline from "./TImeline/Timeline";
+import Tracks from "./tracks/tracks";
 
 export default function landing() {
   return (
@@ -17,8 +18,11 @@ export default function landing() {
       <Hero />
       <About />
       <Previous />
+      <Timeline />
+      <Tracks/>
       <CommPart />
       <CommPart2 />
+      <Tracks />
       <Timeline />
       <FAQPage />
       <Contact />
