@@ -1,6 +1,24 @@
 .commSec
 {
-    min-height: 100dvh;
+    min-height: 70dvh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background: url("images/backgroundAbstarct.png");
+    background-size: cover;
+}
+.sponser1{
+  background: url("images/kalikitech.png");
+}
+.sponser{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .commSec2
 {
@@ -19,12 +37,12 @@
 {
 .commSec
 {
-    min-height: 185dvh;
+    min-height: 70dvh;
 }
 }
 
 .card1 {
-  position: relative;
+  /* position: relative; */
   width: 320px;
   height: 240px;
   background-color: #f2f2f200;
