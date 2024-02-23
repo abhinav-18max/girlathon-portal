@@ -4,13 +4,33 @@ import "./commpart.css";
 
 export default function CommPart() {
   return (
-    <section id="SPONSERS" className="commSec">
+    <section id="SPONSERS" className="commSec p-5">
       <div>
-        <h1>Sponsers</h1>
+        <h1>Sponsors</h1>
       </div>
-      <div>
-        <div className="sponser sponser1">
-          <a href="https://kalkitech.com/" className="card1"></a>
+      <div
+        style={{
+          width: "100%",
+          height: "80%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: "25px",
+        }}
+      >
+        <div>
+          <div className="sponser sponser1">
+            <a href="https://kalkitech.com/" className="card card1"></a>
+          </div>
+        </div>
+        <div className="sponser-line">
+          <div className="sponser sponser2">
+            <a href="https://kalkitech.com/" className="card1"></a>
+          </div>
+          <div className="sponser sponser3">
+            <a href="https://kalkitech.com/" className="card1"></a>
+          </div>
         </div>
       </div>
     </section>
