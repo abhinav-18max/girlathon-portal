@@ -1,4 +1,4 @@
-.commSec
+.commSec, .media-part
 {
     min-height: 100dvh;
     overflow: hidden;
@@ -17,6 +17,9 @@
 }
 .sponser3{
   background: url("images/MACE_QATAR.png");
+}
+.media-card{
+  background: url("images/media_one.png");
 }
 .sponser{
   display: flex;
