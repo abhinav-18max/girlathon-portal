@@ -1,4 +1,4 @@
-.commSec, .media-part
+.commSec, .media-part, .certi-part
 {
     min-height: 100dvh;
     overflow: hidden;
@@ -20,6 +20,9 @@
 }
 .media-card{
   background: url("images/media_one.png");
+}
+.certi-card{
+  background: url("images/pindown.png");
 }
 .sponser{
   display: flex;

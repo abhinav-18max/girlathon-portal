@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function Media() {
+export default function Certificate() {
   return (
-    <section className="media-part p-5" style={{ minHeight: "40dvh" }}>
+    <section className="certi-part p-5" style={{ minHeight: "40dvh" }}>
       <div>
-        <h1>Media Partner</h1>
+        <h1>Certificate Partner</h1>
       </div>
       <div
         style={{
@@ -18,8 +18,8 @@ export default function Media() {
         }}
       >
         <div>
-          <div className="sponser media-card">
-            <a href="https://www.mediaoneonline.com/" className="card1"></a>
+          <div className="sponser certi-card">
+            <a href="https://pindown.app/" className="card1"></a>
           </div>
         </div>
       </div>
