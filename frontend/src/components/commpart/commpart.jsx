@@ -26,10 +26,10 @@ export default function CommPart() {
         </div>
         <div className="sponser-line">
           <div className="sponser sponser2">
-            <a href="https://kalkitech.com/" className="card1"></a>
+            <a href="" className="card1"></a>
           </div>
           <div className="sponser sponser3">
-            <a href="https://kalkitech.com/" className="card1"></a>
+            <a href="http://www.macealumniqatar.org/" className="card1"></a>
           </div>
         </div>
       </div>
