@@ -27,6 +27,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(dash)/teams/page.js"
+    ],
+    "/(dash)/marked/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(dash)/marked/page.js"
     ]
   }
 }

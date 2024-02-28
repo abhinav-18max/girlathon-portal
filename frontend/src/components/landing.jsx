@@ -22,8 +22,6 @@ export default function landing() {
       <Tracks/>
       <CommPart />
       <CommPart2 />
-      <Tracks />
-      <Timeline />
       <FAQPage />
       <Contact />
       <Footer />

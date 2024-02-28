@@ -71,12 +71,18 @@ export default function Auth() {
         password: values.password,
         redirect: false,
       });
-        const res2 = await axios.post(`${API}/auth/login`, {
-            email: values.username,
-            password: values.password,
-        },{withCredentials:true});
-        // console.log(res2);
-      if ( res1.ok && res2.status === 201) {
+      const res2 = await axios.post(
+        `${API}/auth/login`,
+        {
+          email: values.username,
+          password: values.password,
+        },
+        { withCredentials: true }
+      );
+
+      console.log(res2);
+      console.log(res1);
+      if (res1.ok && res2.status === 201) {
         router.push("/teams");
       } else {
         toast({
