@@ -26,8 +26,6 @@ export default function landing() {
       <CommPart2 />
       {/* <Media /> */}
       <Certificate />
-      <Tracks />
-      <Timeline />
       <FAQPage />
       <Contact />
       <Footer />
