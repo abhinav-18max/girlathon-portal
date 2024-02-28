@@ -11,6 +11,8 @@ import CommPart from "./commpart/commpart";
 import CommPart2 from "./commpart/commpart2";
 import Timeline from "./TImeline/Timeline";
 import Tracks from "./tracks/tracks";
+import Media from "./commpart/media";
+import Certificate from "./commpart/Certificate";
 
 export default function landing() {
   return (
@@ -19,9 +21,11 @@ export default function landing() {
       <About />
       <Previous />
       <Timeline />
-      <Tracks/>
+      <Tracks />
       <CommPart />
       <CommPart2 />
+      {/* <Media /> */}
+      <Certificate />
       <Tracks />
       <Timeline />
       <FAQPage />
