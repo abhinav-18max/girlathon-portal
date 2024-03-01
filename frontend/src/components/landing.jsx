@@ -24,7 +24,7 @@ export default function landing() {
       <Tracks />
       <CommPart />
       <CommPart2 />
-      {/* <Media /> */}
+      <Media />
       <Certificate />
       <Tracks />
       <Timeline />
