@@ -19,7 +19,11 @@ export default function Media() {
       >
         <div>
           <div className="sponser media-card">
-            <a href="https://www.mediaoneonline.com/" className="card1"></a>
+            <a
+              href="https://www.mediaoneonline.com/"
+              target="_blank"
+              className="card1"
+            ></a>
           </div>
         </div>
       </div>
