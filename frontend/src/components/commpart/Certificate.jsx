@@ -19,7 +19,11 @@ export default function Certificate() {
       >
         <div>
           <div className="sponser certi-card">
-            <a href="https://pindown.app/" className="card1"></a>
+            <a
+              href="https://pindown.app/"
+              target="_blank"
+              className="card1"
+            ></a>
           </div>
         </div>
       </div>

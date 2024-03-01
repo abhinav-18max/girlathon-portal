@@ -20,14 +20,20 @@ export default function Timeline() {
           }}
           contentArrowStyle={{ borderRight: "10px solid white" }}
           iconStyle={{ background: "#0057E7" }}
-          icon={<img src="/images/idea.png" alt="Icon" style={{ width:'100%',height:'110%' }}/>}
+          icon={
+            <img
+              src="/images/idea.png"
+              alt="Icon"
+              style={{ width: "100%", height: "110%" }}
+            />
+          }
           date="11th February 2024"
         >
           <h3 className="timeline-heading">
             Registration and Idea Submission Starts
           </h3>
         </VerticalTimelineElement>
-        <VerticalTimelineElement 
+        <VerticalTimelineElement
           className="vertical-timeline-element--registration"
           contentStyle={{
             background: "#f2f2f200",
@@ -36,8 +42,14 @@ export default function Timeline() {
           }}
           contentArrowStyle={{ borderRight: "10px solid white" }}
           iconStyle={{ background: "#0057E7" }}
-          icon={<img src="/images/close.png" alt="Icon" style={{ width:'80%',height:'80%',paddingLeft:'.3rem'  }}/>}
-          date="29th  February 2024"
+          icon={
+            <img
+              src="/images/close.png"
+              alt="Icon"
+              style={{ width: "80%", height: "80%", paddingLeft: ".3rem" }}
+            />
+          }
+          date="7th March 2024"
         >
           <h3 className="timeline-heading">Registration closes</h3>
         </VerticalTimelineElement>
@@ -52,8 +64,10 @@ export default function Timeline() {
           iconStyle={{
             background: "#0057E7",
           }}
-          icon={<img src="/images/anoun.png" alt="Icon" style={{ width:'100%' }}/>}
-          date="7th March 2024"
+          icon={
+            <img src="/images/anoun.png" alt="Icon" style={{ width: "100%" }} />
+          }
+          date="12th March 2024"
         >
           <h3 className="timeline-heading">
             Announcement of Shortlisted participants
@@ -68,7 +82,13 @@ export default function Timeline() {
           }}
           contentArrowStyle={{ borderRight: "10px solid white" }}
           iconStyle={{ background: "#0057E7" }}
-          icon={<img src="/images/mentor.png" alt="Icon" style={{ width:'90%',height:'80%' }}/>}
+          icon={
+            <img
+              src="/images/mentor.png"
+              alt="Icon"
+              style={{ width: "90%", height: "80%" }}
+            />
+          }
           date="14th March 2024"
         >
           <h3 className="timeline-heading">Allocation of mentors</h3>
@@ -82,7 +102,9 @@ export default function Timeline() {
           }}
           contentArrowStyle={{ borderRight: "10px solid white" }}
           iconStyle={{ background: "#0057E7" }}
-          icon={<img src="/images/net.png" alt="Icon" style={{ width:'100%' }}/>}
+          icon={
+            <img src="/images/net.png" alt="Icon" style={{ width: "100%" }} />
+          }
           date="16th March 2024"
         >
           <h3 className="timeline-heading">Online Development Phase Begins</h3>
@@ -96,7 +118,13 @@ export default function Timeline() {
           }}
           contentArrowStyle={{ borderRight: "10px solid white" }}
           iconStyle={{ background: "#0057E7" }}
-          icon={<img src="/images/reg.png" alt="Icon" style={{ width:'90%',height:'100%',paddingLeft:'.3rem' }}/>}
+          icon={
+            <img
+              src="/images/reg.png"
+              alt="Icon"
+              style={{ width: "90%", height: "100%", paddingLeft: ".3rem" }}
+            />
+          }
           date="4th April 2024"
         >
           <h3 className="timeline-heading">Second round of shortlisting</h3>
@@ -110,7 +138,9 @@ export default function Timeline() {
           }}
           contentArrowStyle={{ borderRight: "10px solid white" }}
           iconStyle={{ background: "#0057E7" }}
-          icon={<img src="/images/pres.png" alt="Icon" style={{ width:'100%' }}/>}
+          icon={
+            <img src="/images/pres.png" alt="Icon" style={{ width: "100%" }} />
+          }
           date="6th April 2024"
         >
           <h3 className="timeline-heading">
