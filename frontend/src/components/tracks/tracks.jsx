@@ -136,7 +136,7 @@ export default function Tracks() {
          
   <div className="card-inner" style={{ background:'none' }}>
     <div className={`card-front track-front${value.numb}`} style={{ background:'none' }}>
-     <div > <h4 className="track-front-inner" style={{padding:'.9rem',borderRadius:'.4rem', color:'white',fontSize:'1.5rem',background:`${value.color}`,boxShadow:'0px 0px 7px 3px rgba(0, 0, 0, 0.152)',textAlign:'center' }}>{value.header}
+     <div style={{ minWidth:'20.2rem',paddingRight:'1rem' }}> <h4 className="track-front-inner" style={{paddingTop:'2rem',paddingBottom:'2rem',padding:'1rem',borderRadius:'.4rem', color:'white',fontSize:'1.3rem',background:`${value.color}`,boxShadow:'0px 0px 7px 3px rgba(0, 0, 0, 0.152)',textAlign:'center',height:'12rem' }}>{value.header}
     <br></br><div style={{display:'flex',justifyContent:'center',paddingTop:'1rem' }}> <img src={`/images/${value.img}`} style={{height:'5rem' }}/></div></h4>
      </div>
     </div>
