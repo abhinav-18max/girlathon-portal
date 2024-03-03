@@ -13,12 +13,14 @@ import Timeline from "./TImeline/Timeline";
 import Tracks from "./tracks/tracks";
 import Media from "./commpart/media";
 import Certificate from "./commpart/Certificate";
+import Prize from "./prize";
 
 export default function landing() {
   return (
     <div style={{ overflow: "clip" }}>
       <Hero />
       <About />
+      <Prize />
       <Previous />
       <Timeline />
       <Tracks />

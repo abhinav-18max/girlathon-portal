@@ -303,3 +303,11 @@ letter-spacing: -10px;
 .values .box:hover img {
   transform: scale(1);
 }
+
+.prize-card{
+  background: #eeeeee03 !important;
+  backdrop-filter: blur(10px);
+  transition: ease-in-out;
+  transition-duration: 500ms;
+}
+
