@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function Hero() {
-  const [loading,setLoading]=useState(false)
+  const [loading, setLoading] = useState(false);
   const scrollDown = () => {
     // Specify the number of pixels to scroll
     const pixelsToScroll = 2000;
@@ -11,7 +11,7 @@ function Hero() {
     window.scrollBy({
       top: pixelsToScroll,
       left: 0,
-      behavior: 'smooth', // Optional: adds smooth scrolling animation
+      behavior: "smooth", // Optional: adds smooth scrolling animation
     });
   };
   const scrollUp = () => {
@@ -22,14 +22,14 @@ function Hero() {
     window.scrollBy({
       top: pixelsToScroll,
       left: 0,
-      behavior: 'smooth', // Optional: adds smooth scrolling animation
+      behavior: "smooth", // Optional: adds smooth scrolling animation
     });
   };
   useEffect(() => {
-// scrollDown()
-// const timer = setTimeout(() => {
-//   scrollUp() 
-// }, 1000);
+    // scrollDown()
+    // const timer = setTimeout(() => {
+    //   scrollUp()
+    // }, 1000);
 
     generateHexGrid();
   }, []);
@@ -53,7 +53,7 @@ function Hero() {
   //timer code
 
   const calculateTimeLeft = () => {
-    const difference = +new Date("2024-03-23") - +new Date();
+    const difference = +new Date("2024-04-06") - +new Date();
     let timeLeft = {};
 
     if (difference > 0) {
@@ -84,14 +84,30 @@ function Hero() {
   };
 
   return (
-    <section  className="hero-bg fade-up" id="HERO" data-aos="zoom-out-up" data-aos-duration="1300" data-aos-once="true">
+    <section
+      className="hero-bg fade-up"
+      id="HERO"
+      data-aos="zoom-out-up"
+      data-aos-duration="1300"
+      data-aos-once="true"
+    >
       <img className="hero-image" src="images/backgroundAbstarct.png" />
-      <div className="hex-grid" id="hexGrid"></div>
+      <div className="hex-grid" id="hexGrid">
+        <Link to="/Signin" className="reg-btn">
+          Regsister Now &#8599;
+        </Link>
+      </div>
 
-      <div className="hero row fade-up" data-aos="zoom-out-up" data-aos-duration="1300" data-aos-once="true">
+      <div
+        className="hero row fade-up"
+        data-aos="zoom-out-up"
+        data-aos-duration="1300"
+        data-aos-once="true"
+      >
         <div className="left col-lg-6"></div>
+
         <div className="right col-lg-6">
-           <div className="timer">
+          <div className="timer">
             <h4 className="fade-up">Time Left</h4>
             <h6 className="clock fade-up">
               <span className="digit">{formatTime(timeLeft.days)}</span>
@@ -103,8 +119,14 @@ function Hero() {
               <span className="digit">{formatTime(timeLeft.seconds)}</span>
               {"    "}secs
             </h6>
-          </div> 
-          <div className="title fade-up" data-aos="zoom-out-up" data-aos-duration="1300" data-aos-once="true" style={{ paddingTop:'1rem' }}>
+          </div>
+          <div
+            className="title fade-up"
+            data-aos="zoom-out-up"
+            data-aos-duration="1300"
+            data-aos-once="true"
+            style={{ paddingTop: "1rem" }}
+          >
             <h1>GIRLATHON</h1>
             <h2>2024</h2>
           </div>
@@ -114,8 +136,15 @@ function Hero() {
               <span className="text-Gdsc">GDSC MACE {"  "}</span>
               {"  "}
             </h6>
+            <br />
+
+            <h3>
+              <b>
+                REGISTRATIONS CLOSE ON :{" "}
+                <span className="text-danger">7TH MARCH</span>
+              </b>
+            </h3>
           </div>
-         
         </div>
         {
           //<iframe title='J' src='https://my.spline.design/readyplayermelookingaround-0c0f2a2232256d31c16ec20f9e01ab2c/' frameborder='0' width='100%' height='100%'></iframe>
@@ -129,19 +158,31 @@ function Hero() {
           </Link>
         </div>
       </div> */}
-      <div style={{ position:'absolute',zIndex:'90',top:'25%',left:'50%',display:'flex',justifyContent:'center',alignItems:'center' }}
+      <div
+        style={{
+          position: "absolute",
+          zIndex: "90",
+          top: "25%",
+          left: "50%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
       >
-          <Link to="/Signin" className="reg-btn"  onClick={()=>{
-             document.getElementById("hero-navmob").style.display = "block";
-                  document.getElementById("hero-amob").style.display = "none";
-                  document.getElementById('hero-nav').style.display='block'
-                document.getElementById('hero-nav').classList.remove('link-active')
-                document.getElementById('hero-a').style.display='none'
-          }}>
-            Register now &#x2197;
-          </Link>
-        </div>
-      
+        {/* <Link
+          to="/Signin"
+          className="reg-btn"
+          onClick={() => {
+            document.getElementById("hero-navmob").style.display = "block";
+            document.getElementById("hero-amob").style.display = "none";
+            document.getElementById("hero-nav").style.display = "block";
+            document.getElementById("hero-nav").classList.remove("link-active");
+            document.getElementById("hero-a").style.display = "none";
+          }}
+        >
+          Register now &#x2197;
+        </Link> */}
+      </div>
     </section>
   );
 }
