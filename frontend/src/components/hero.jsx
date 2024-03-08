@@ -93,9 +93,9 @@ function Hero() {
     >
       <img className="hero-image" src="images/backgroundAbstarct.png" />
       <div className="hex-grid" id="hexGrid">
-        <Link to="/Signin" className="reg-btn">
+        {/* <Link to="/Signin" className="reg-btn">
           Regsister Now &#8599;
-        </Link>
+        </Link> */}
       </div>
 
       <div
@@ -140,8 +140,7 @@ function Hero() {
 
             <h3>
               <b>
-                REGISTRATIONS CLOSE ON :{" "}
-                <span className="text-danger">7TH MARCH</span>
+                <span className="text-danger"> REGISTRATIONS CLOSED</span>
               </b>
             </h3>
           </div>

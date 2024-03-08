@@ -33,7 +33,7 @@ function App() {
     <Navbar />
       <Routes>
       <Route path="/" exact Component={landing}/>
-        <Route path="/Signin" exact Component={Signin}/>
+        <Route path="/Signin" exact Component={landing}/>
         <Route path="/dash" exact Component={DashInd}/>
         <Route path="/ideaSumbit" exact Component={IdeaSubmission}/>
         <Route path="/resetPassword" exact Component={ResetPass}/>
