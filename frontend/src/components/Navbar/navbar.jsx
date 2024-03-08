@@ -132,7 +132,7 @@ export default function Navbar() {
               }}
             >
               {" "}
-              <li className="register">Register</li>
+              {/* <li className="register">Register</li> */}
             </NavLink>
           </ul>
         </div>
@@ -200,7 +200,7 @@ export default function Navbar() {
               Contact
             </a>
           </li>
-          <li
+          {/* <li
             className="register"
             onClick={() => {
               document.getElementById("hero-navmob").style.display = "block";
@@ -216,7 +216,7 @@ export default function Navbar() {
             >
               Register
             </Link>
-          </li>
+          </li> */}
         </ul>
       </section>
       {activeSection != "HERO" && topvis && (

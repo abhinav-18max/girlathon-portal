@@ -35,7 +35,7 @@ export default function IdeaSubmission() {
   useEffect(() => {
     getter();
     if (!loginSuccess.isLoggedIn) 
-    navigate("/Signin");
+    navigate("/");
   });
 
   // variables

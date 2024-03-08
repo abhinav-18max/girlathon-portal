@@ -61,7 +61,7 @@ export default function DashInd()
     useEffect(()=>{
       getter()
       if(!loginSuccess.isLoggedIn)
-        navigate('/Signin')
+        navigate('/')
      if(teammates.length==3)
         setCount(5)
      
